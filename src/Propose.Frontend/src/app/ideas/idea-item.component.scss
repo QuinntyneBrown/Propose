@@ -1,0 +1,22 @@
+@import "../../styles/base/_all";
+
+ce-idea-item {
+    cursor:pointer;
+    display:inline-block;
+    width:300px;
+    height:120px;    
+    position:relative;
+    float:left;
+    margin:10px;
+    background-color:azure;
+    padding:10px;
+}
+
+ce-idea-item:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}

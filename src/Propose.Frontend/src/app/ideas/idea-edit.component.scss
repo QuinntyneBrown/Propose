@@ -1,0 +1,15 @@
+@import "../../styles/base/_all";
+
+ce-idea-edit {
+    @extend .view-card;
+
+    h2 {
+        cursor:pointer;
+    }
+
+    .idea-html-body,
+    .idea-html-description {
+        height:145px;
+        margin-bottom:20px;
+    }
+}
