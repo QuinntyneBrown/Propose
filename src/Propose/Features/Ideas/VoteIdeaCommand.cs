@@ -34,7 +34,7 @@ namespace Propose.Features.Ideas
                     .Include(x=>x.Votes)
                     .SingleAsync(x=>x.Id == request.Id);
 
-                var existingVote = idea.Votes.SingleOrDefault(x => x.UserId == request.UserId && x.IdeaId == request.Id);
+                var existingVote = idea.Votes.SingleOrDefault(x => x.UserId == request.UserId);
 
                 if (existingVote != null)
                 {
