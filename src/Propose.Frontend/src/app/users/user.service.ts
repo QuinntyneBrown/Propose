@@ -53,10 +53,17 @@ export class UserService {
         });
     }
 
-    public getCurrentUser = () => fetch({
-        url: "/api/user/current",
-        method: "GET",
-        authRequired:true
-    });
+    public getCurrentUser() {
+        return fetch({
+            url: "/api/user/current",
+            method: "GET",
+            authRequired: true
+        }).then((results: string) => {
+            if (results == "")
+                return null;
+
+            return (<{ user: User }>JSON.parse(results)).user; 
+        });
+    }
 
 }

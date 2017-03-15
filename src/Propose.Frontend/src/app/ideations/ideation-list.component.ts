@@ -17,7 +17,7 @@ export class IdeationListComponent extends HTMLElement {
     }
 
     private async _bind() {
-        const ideations: Array<Ideation> = await this._ideationService.get();
+        const ideations: Array<any> = await this._ideationService.get();
         for (var i = 0; i < ideations.length; i++) {
             let el = this._document.createElement(`ce-ideation-item`);
             el.setAttribute("entity", JSON.stringify(ideations[i]));

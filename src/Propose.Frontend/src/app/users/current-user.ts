@@ -10,5 +10,6 @@ export class CurrentUser {
         return this._instance;
     }
 
-    public username:string 
+    public username: string 
+    public userId: number;
 }

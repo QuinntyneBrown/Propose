@@ -18,7 +18,7 @@ export class AuthorizedRouteMiddleware extends RouterMiddleware {
 
     }
 
-    public beforeViewTransition(options: RouteChangeOptions) {     
+    public async beforeViewTransition(options: RouteChangeOptions) {     
         
         if (options.nextRoute.authRequired && !this._storage.get({ name: TOKEN_KEY })) {                      
             this._loginRedirect.setLastPath(window.location.pathname);
@@ -26,16 +26,18 @@ export class AuthorizedRouteMiddleware extends RouterMiddleware {
             this._router.navigate(["login"]);                        
         }
 
-        if (options.nextRoute.authRequired)
-            this._userService.getCurrentUser().then((results: string) => {
-                if (results == "") {
-                    this._storage.put({ name: TOKEN_KEY, value: null });
-                    this._router.navigate(["login"]);
-                } else {
-                    const user: User = JSON.parse(results) as User;
-                    this._currentUser.username = user.name;
-                }
-            });
+        if (options.nextRoute.authRequired) {
+            const results = await this._userService.getCurrentUser() as any;            
+            if (results == "") {
+                this._storage.put({ name: TOKEN_KEY, value: null });
+                this._router.navigate(["login"]);
+            } else {
+                const user: User = results;
+                this._currentUser.username = user.name;
+                this._currentUser.userId = user.id;                
+            }
+        }
+
     }
 
     public onViewTransition(options: RouteChangeOptions): HTMLElement {

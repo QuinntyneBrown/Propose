@@ -35,8 +35,7 @@ export class IdeaListComponent extends HTMLElement {
             this._ideationService.get()
         ];
 
-        const results = await Promise.all(promises);
-
+        const results: Array<any> = await Promise.all(promises);
         const ideations = results[1];
         const ideas = results[0];
 
@@ -58,7 +57,7 @@ export class IdeaListComponent extends HTMLElement {
             if ( ideas[i].ideationId == this.ideationId) {
                 let el = this._document.createElement(`ce-idea-item`);
                 el.setAttribute("entity", JSON.stringify(ideas[i]));
-                this._cardsElement.appendChild(el);
+                this.cardsElement.appendChild(el);
             }
         }    
     }
@@ -80,7 +79,7 @@ export class IdeaListComponent extends HTMLElement {
     }
 
     private get selectElement(): HTMLSelectElement { return this.querySelector("select") as HTMLSelectElement; }
-    private get _cardsElement(): HTMLElement { return this.querySelector(".idea-cards") as HTMLElement; }
+    private get cardsElement(): HTMLElement { return this.querySelector(".idea-cards") as HTMLElement; }
 }
 
 customElements.define("ce-idea-list", IdeaListComponent);

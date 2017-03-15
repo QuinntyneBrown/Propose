@@ -2,6 +2,7 @@ import { Idea } from "./idea.model";
 import { IdeaService } from "./idea.service";
 import { EditorComponent } from "../shared";
 import { Router } from "../router";
+import { CurrentUser } from "../users";
 
 const template = require("./idea-item.component.html");
 const styles = require("./idea-item.component.scss");
@@ -9,7 +10,9 @@ const styles = require("./idea-item.component.scss");
 export class IdeaItemComponent extends HTMLElement {
     constructor(
         private _ideaService: IdeaService = IdeaService.Instance,
-        private _router: Router = Router.Instance) {
+        private _router: Router = Router.Instance,
+        private _currentUser: CurrentUser = CurrentUser.Instance
+    ) {
         super();
 
         this._onDeleteClick = this._onDeleteClick.bind(this);
@@ -37,6 +40,7 @@ export class IdeaItemComponent extends HTMLElement {
 
     private _bind() {
         this._nameElement.textContent = `${this.entity.name} - ${this.entity.votes.length}`;
+        this._htmlBodyElement.innerHTML = this.entity.htmlBody;
     }
 
     private _setEventListeners() {
@@ -76,6 +80,8 @@ export class IdeaItemComponent extends HTMLElement {
     private get _deleteLinkElement() { return this.querySelector(".entity-item-delete") as HTMLElement; }
     private get _editLinkElement() { return this.querySelector(".entity-item-edit") as HTMLElement; }
     private get _viewLinkElement() { return this.querySelector(".entity-item-view") as HTMLElement; }
+    private get _htmlBodyElement() { return this.querySelector(".idea-html-body") as HTMLElement; }
+
     public entity: Idea;
 }
 
