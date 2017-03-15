@@ -6,8 +6,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>
-    </ProductVersion>
+    <ProductVersion></ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{F6286226-21E2-4BEB-B76D-F9E2D650E02A}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
@@ -22,8 +21,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
+    <NuGetPackageImportStamp></NuGetPackageImportStamp>
     <TypeScriptToolsVersion>2.2</TypeScriptToolsVersion>
     <TypeScriptEmitDecoratorMetadata>true</TypeScriptEmitDecoratorMetadata>
     <TypeScriptModuleKind>commonjs</TypeScriptModuleKind>
@@ -197,6 +195,8 @@
   <ItemGroup>
     <Content Include=".gitignore" />
     <Content Include="index.html" />
+    <Content Include="lib\jquery-1.6.4.js" />
+    <Content Include="lib\jquery.signalR-2.2.1.js" />
     <Content Include="lib\moment.min.js" />
     <Content Include="lib\native-shim.js" />
     <Content Include="lib\quill.core.css" />
@@ -313,6 +313,12 @@
     <Content Include="src\app\shared\tabs.component.scss">
       <DependentUpon>tabs.component.ts</DependentUpon>
     </Content>
+    <Content Include="src\app\users\change-password.component.html">
+      <DependentUpon>change-password.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\users\change-password.component.scss">
+      <DependentUpon>change-password.component.ts</DependentUpon>
+    </Content>
     <Content Include="src\app\users\login.component.html">
       <DependentUpon>login.component.ts</DependentUpon>
     </Content>
@@ -375,8 +381,7 @@
           <IISUrl>http://localhost:64410/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
+          <CustomServerUrl></CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
@@ -398,6 +403,7 @@
   -->
   <ItemGroup>
     <TypeScriptCompile Include="src\app\environment.ts" />
+    <TypeScriptCompile Include="src\app\ideas\idea-hub.service.ts" />
     <TypeScriptCompile Include="src\app\index.ts" />
     <TypeScriptCompile Include="src\app\pagination\ipaged-list.d.ts" />
     <TypeScriptCompile Include="src\app\pagination\paged-list.model.ts" />
@@ -495,6 +501,7 @@
     <TypeScriptCompile Include="src\app\ideations\ideation-item.component.ts" />
     <TypeScriptCompile Include="src\app\ideations\ideation-edit.component.ts" />
     <TypeScriptCompile Include="src\app\ideations\ideation-list.component.ts" />
+    <TypeScriptCompile Include="src\app\users\change-password.component.ts" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />

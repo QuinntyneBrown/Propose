@@ -1,4 +1,4 @@
-import { RouterOutlet } from "./router";
+import { RouterOutlet, RouteReloadMiddleware } from "./router";
 import { AuthorizedRouteMiddleware } from "./users";
 
 export class AppRouterOutletComponent extends RouterOutlet {
@@ -19,7 +19,8 @@ export class AppRouterOutletComponent extends RouterOutlet {
             { path: "/ideation/list", name: "ideation-list", authRequired: true },
 
             { path: "/register", name: "register" },
-            
+
+            { path: "/change-password", name: "change-password", authRequired:true },
             { path: "/login", name: "login" },
             { path: "/error", name: "error" },
             { path: "*", name: "not-found" }
@@ -27,10 +28,10 @@ export class AppRouterOutletComponent extends RouterOutlet {
         ] as any);
 
         this.use(new AuthorizedRouteMiddleware());
+        this.use(new RouteReloadMiddleware());
 
         super.connectedCallback();
     }
-
 }
 
 customElements.define(`ce-app-router-oulet`, AppRouterOutletComponent);

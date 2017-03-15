@@ -1,4 +1,5 @@
 export * from "./authorized-route-listener";
+export * from "./change-password.component";
 export * from "./current-user";
 export * from "./login-redirect";
 export * from "./login.component";

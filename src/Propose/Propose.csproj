@@ -197,6 +197,7 @@
     <Compile Include="Features\Core\RateLimit.cs" />
     <Compile Include="Features\Core\StringExtensions.cs" />
     <Compile Include="Features\Core\WebApiUnityActionFilterProvider.cs" />
+    <Compile Include="Features\Ideas\IdeaHub.cs" />
     <Compile Include="Features\Users\AddOrUpdateUserCommand.cs" />
     <Compile Include="Features\Users\Constants.cs" />
     <Compile Include="Features\Users\GetUserByIdQuery.cs" />
@@ -244,7 +245,6 @@
     <Compile Include="Features\Ideations\IdeationController.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Features\Ideations\" />
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>

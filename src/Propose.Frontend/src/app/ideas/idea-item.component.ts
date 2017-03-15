@@ -1,4 +1,5 @@
 import { Idea } from "./idea.model";
+import { IdeaHub } from "./idea-hub.service";
 import { IdeaService } from "./idea.service";
 import { EditorComponent } from "../shared";
 import { Router } from "../router";
@@ -10,6 +11,7 @@ const styles = require("./idea-item.component.scss");
 
 export class IdeaItemComponent extends HTMLElement {
     constructor(
+        private _ideaHub: IdeaHub = IdeaHub.Instance,
         private _ideaService: IdeaService = IdeaService.Instance,
         private _router: Router = Router.Instance,
         private _currentUser: CurrentUser = CurrentUser.Instance
@@ -20,12 +22,23 @@ export class IdeaItemComponent extends HTMLElement {
         this._onEditClick = this._onEditClick.bind(this);
         this._onViewClick = this._onViewClick.bind(this);
         this._onClick = this._onClick.bind(this);
+        this._addOrRemove = this._addOrRemove.bind(this);
+        this._onOtherVotedIdea = this._onOtherVotedIdea.bind(this);
+
+        _ideaHub.subscribe(this._onOtherVotedIdea);
     }
 
     static get observedAttributes() {
         return ["entity"];
     }
-    
+
+    public _onOtherVotedIdea(options: { userId: any, ideaId: any }) {        
+        if (options && this.entity.id == options.ideaId) {
+            this._addOrRemove({ votes: this.entity.votes, userId: options.userId });
+            this._nameElement.textContent = `${this.entity.name} - ${this.entity.votes.length}`;
+        }        
+    }
+
     connectedCallback() {        
         this.innerHTML = `<style>${styles}</style> ${template}`;
         this._bind();
@@ -64,18 +77,27 @@ export class IdeaItemComponent extends HTMLElement {
         this._router.navigate(["idea","view",this.entity.id]);
     }
 
-    private async _onClick() {        
-        var existingVote = this.entity.votes.find((x) => { return x.userId == this._currentUser.userId });
-        
-        if (existingVote) {            
-            pluckOut({ key: "userId", value: existingVote.userId, items: this.entity.votes });
+    private _addOrRemove(options:{ votes:Array<any>, userId:any }) {
+        var existingVote = options.votes.find((x) => { return x.userId == options.userId });
+
+        if (existingVote) {
+            pluckOut({ key: "userId", value: existingVote.userId, items: options.votes });
         } else {
-            this.entity.votes.push({ userId: this._currentUser.userId });
+            options.votes.push({ userId: options.userId });
         }
+    }
+
+    private async _onClick() {                
+        this._addOrRemove({ votes: this.entity.votes, userId: this._currentUser.userId });
 
         this._nameElement.textContent = `${this.entity.name} - ${this.entity.votes.length}`;
 
         await this._ideaService.vote({ id: this.entity.id });        
+
+        this._ideaHub.votedIdea({
+            userId: this._currentUser.userId,
+            ideaId: this.entity.id
+        });
     }
     
     attributeChangedCallback(name, oldValue, newValue) {
