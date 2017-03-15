@@ -1,5 +1,6 @@
 import { Idea } from "./idea.model";
 import { IdeaService } from "./idea.service";
+import { IdeaHub } from "./idea-hub.service";
 import { IdeationService, Ideation } from "../ideations";
 import { Router } from "../router";
 
@@ -10,11 +11,17 @@ export class IdeaListComponent extends HTMLElement {
     constructor(
         private _document: Document = document,
         private _ideaService: IdeaService = IdeaService.Instance,
+        private _ideaHub: IdeaHub = IdeaHub.Instance,
         private _ideationService: IdeationService = IdeationService.Instance,
         private _router: Router = Router.Instance
     ) {
         super();
         this.onSelectChange = this.onSelectChange.bind(this);
+        _ideaHub.subscribe(this._onOtherIdeaAddedOrUpdated);
+    }
+
+    private _onOtherIdeaAddedOrUpdated() {
+
     }
 
     private ideationId: any;

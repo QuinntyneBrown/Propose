@@ -1,6 +1,7 @@
 import { Idea } from "./idea.model";
 import { IdeaHub } from "./idea-hub.service";
 import { IdeaService } from "./idea.service";
+import { IdeaEventType } from "./idea-event-type";
 import { EditorComponent } from "../shared";
 import { Router } from "../router";
 import { CurrentUser } from "../users";
@@ -32,8 +33,8 @@ export class IdeaItemComponent extends HTMLElement {
         return ["entity"];
     }
 
-    public _onOtherVotedIdea(options: { userId: any, ideaId: any }) {        
-        if (options && this.entity.id == options.ideaId) {
+    public _onOtherVotedIdea(options: { userId: any, ideaId: any, eventType: IdeaEventType }) {        
+        if (options && options.eventType == IdeaEventType.VotedIdea && this.entity.id == options.ideaId) {
             this._addOrRemove({ votes: this.entity.votes, userId: options.userId });
             this._nameElement.textContent = `${this.entity.name} - ${this.entity.votes.length}`;
         }        

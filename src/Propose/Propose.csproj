@@ -197,6 +197,18 @@
     <Compile Include="Features\Core\RateLimit.cs" />
     <Compile Include="Features\Core\StringExtensions.cs" />
     <Compile Include="Features\Core\WebApiUnityActionFilterProvider.cs" />
+    <Compile Include="Features\DigitalAssets\AddOrUpdateDigitalAssetCommand.cs" />
+    <Compile Include="Features\DigitalAssets\Constants.cs" />
+    <Compile Include="Features\DigitalAssets\DigitalAssetApiModel.cs" />
+    <Compile Include="Features\DigitalAssets\DigitalAssetController.cs" />
+    <Compile Include="Features\DigitalAssets\GetDigitalAssetByIdQuery.cs" />
+    <Compile Include="Features\DigitalAssets\GetDigitalAssetByUniqueIdQuery.cs" />
+    <Compile Include="Features\DigitalAssets\GetDigitalAssetsQuery.cs" />
+    <Compile Include="Features\DigitalAssets\RemoveDigitalAssetCommand.cs" />
+    <Compile Include="Features\DigitalAssets\UploadDigitalAssetCommand.cs" />
+    <Compile Include="Features\DigitalAssets\UploadHandlers\FileMultipartFormDataStreamProvider.cs" />
+    <Compile Include="Features\DigitalAssets\UploadHandlers\InMemoryMultipartFormDataStreamProvider.cs" />
+    <Compile Include="Features\DigitalAssets\UploadHandlers\StreamHelper.cs" />
     <Compile Include="Features\Ideas\IdeaHub.cs" />
     <Compile Include="Features\Users\AddOrUpdateUserCommand.cs" />
     <Compile Include="Features\Users\Constants.cs" />
@@ -243,8 +255,20 @@
     <Compile Include="Features\Ideations\RemoveIdeationCommand.cs" />
     <Compile Include="Features\Ideations\IdeationApiModel.cs" />
     <Compile Include="Features\Ideations\IdeationController.cs" />
+    <Compile Include="Data\Model\Team.cs" />
+    <Compile Include="Features\Teams\AddOrUpdateTeamCommand.cs" />
+    <Compile Include="Features\Teams\GetTeamsQuery.cs" />
+    <Compile Include="Features\Teams\GetTeamByIdQuery.cs" />
+    <Compile Include="Features\Teams\RemoveTeamCommand.cs" />
+    <Compile Include="Features\Teams\TeamApiModel.cs" />
+    <Compile Include="Features\Teams\TeamController.cs" />
+    <Compile Include="Data\Model\TeamLeader.cs" />
+    <Compile Include="Data\Model\IdeaDigitalAsset.cs" />
+    <Compile Include="Data\Model\DigitalAsset.cs" />
+    <Compile Include="Data\Model\IdeaLink.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Features\Notifications\" />
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>

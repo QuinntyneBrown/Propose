@@ -7,14 +7,22 @@ namespace Propose.Features.Ideas
     [HubName("ideaHub")]
     public class IdeaHub: Hub
     {
-        public override Task OnConnected()
-        {
-            return base.OnConnected();
-        }
-
         public void VotedIdea(dynamic options)
         {
+            options.eventType = IdeaEventType.VotedIdea;
             Clients.Others.votedIdea(options);
         }
+
+        public void IdeaAddedOrUpdated(dynamic options)
+        {
+            options.eventType = IdeaEventType.IdeaAddedOrUpdated;
+                
+            Clients.Others.ideaAddedOrUpdated(options);
+        }
+    }
+
+    public enum IdeaEventType {
+        VotedIdea,
+        IdeaAddedOrUpdated
     }
 }

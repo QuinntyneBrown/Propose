@@ -16,6 +16,9 @@ namespace Propose.Data
         DbSet<Idea> Ideas { get; set; }
         DbSet<Ideation> Ideations { get; set; }
         DbSet<Vote> Votes { get; set; }
+        DbSet<Team> Teams { get; set; }
+        DbSet<IdeaDigitalAsset> IdeaDigitalAssets { get; set; }
+        DbSet<DigitalAsset> DigitalAssets { get; set; }
         Task<int> SaveChangesAsync();
     }
 
@@ -34,6 +37,9 @@ namespace Propose.Data
         public DbSet<Tenant> Tenants { get; set; }
         public DbSet<Idea> Ideas { get; set; }
         public DbSet<Ideation> Ideations { get; set; }
+        public DbSet<Team> Teams { get; set; }
+        public DbSet<IdeaDigitalAsset> IdeaDigitalAssets { get; set; }
+        public DbSet<DigitalAsset> DigitalAssets { get; set; }
 
         public DbSet<Vote> Votes { get; set; }
 

@@ -6,7 +6,8 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion></ProductVersion>
+    <ProductVersion>
+    </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{F6286226-21E2-4BEB-B76D-F9E2D650E02A}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
@@ -21,7 +22,8 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
-    <NuGetPackageImportStamp></NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
     <TypeScriptToolsVersion>2.2</TypeScriptToolsVersion>
     <TypeScriptEmitDecoratorMetadata>true</TypeScriptEmitDecoratorMetadata>
     <TypeScriptModuleKind>commonjs</TypeScriptModuleKind>
@@ -211,6 +213,24 @@
     <Content Include="src\app\app.component.scss">
       <DependentUpon>app.component.ts</DependentUpon>
     </Content>
+    <Content Include="src\app\digital-assets\digital-asset-edit-embed.component.html">
+      <DependentUpon>digital-asset-edit-embed.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\digital-assets\digital-asset-edit-embed.component.scss">
+      <DependentUpon>digital-asset-edit-embed.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\digital-assets\digital-asset-item-embed.component.html">
+      <DependentUpon>digital-asset-item-embed.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\digital-assets\digital-asset-item-embed.component.scss">
+      <DependentUpon>digital-asset-item-embed.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\digital-assets\digital-asset-list-embed.component.html">
+      <DependentUpon>digital-asset-list-embed.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\digital-assets\digital-asset-list-embed.component.scss">
+      <DependentUpon>digital-asset-list-embed.component.ts</DependentUpon>
+    </Content>
     <Content Include="src\app\ideas\idea-edit.component.html">
       <DependentUpon>idea-edit.component.ts</DependentUpon>
     </Content>
@@ -246,6 +266,24 @@
     </Content>
     <Content Include="src\app\ideations\ideation-list.component.scss">
       <DependentUpon>ideation-list.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\links\link-edit-embed.component.html">
+      <DependentUpon>link-edit-embed.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\links\link-edit-embed.component.scss">
+      <DependentUpon>link-edit-embed.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\links\link-item-embed.component.html">
+      <DependentUpon>link-item-embed.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\links\link-item-embed.component.scss">
+      <DependentUpon>link-item-embed.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\links\link-list-embed.component.html">
+      <DependentUpon>link-list-embed.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\links\link-list-embed.component.scss">
+      <DependentUpon>link-list-embed.component.ts</DependentUpon>
     </Content>
     <Content Include="src\app\shared\button.component.html">
       <DependentUpon>button.component.ts</DependentUpon>
@@ -381,7 +419,8 @@
           <IISUrl>http://localhost:64410/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl></CustomServerUrl>
+          <CustomServerUrl>
+          </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
@@ -402,7 +441,12 @@
   </Target>
   -->
   <ItemGroup>
+    <TypeScriptCompile Include="src\app\digital-assets\digital-asset-url-input.component.ts" />
+    <TypeScriptCompile Include="src\app\digital-assets\digital-asset.model.ts" />
+    <TypeScriptCompile Include="src\app\digital-assets\digital-asset.service.ts" />
+    <TypeScriptCompile Include="src\app\digital-assets\index.ts" />
     <TypeScriptCompile Include="src\app\environment.ts" />
+    <TypeScriptCompile Include="src\app\ideas\idea-event-type.ts" />
     <TypeScriptCompile Include="src\app\ideas\idea-hub.service.ts" />
     <TypeScriptCompile Include="src\app\index.ts" />
     <TypeScriptCompile Include="src\app\pagination\ipaged-list.d.ts" />
@@ -502,6 +546,16 @@
     <TypeScriptCompile Include="src\app\ideations\ideation-edit.component.ts" />
     <TypeScriptCompile Include="src\app\ideations\ideation-list.component.ts" />
     <TypeScriptCompile Include="src\app\users\change-password.component.ts" />
+    <TypeScriptCompile Include="src\app\links\index.ts" />
+    <TypeScriptCompile Include="src\app\links\link.model.ts" />
+    <TypeScriptCompile Include="src\app\links\link-list-embed.component.ts" />
+    <TypeScriptCompile Include="src\app\links\link-edit-embed.component.ts" />
+    <TypeScriptCompile Include="src\app\links\link-item-embed.component.ts" />
+    <TypeScriptCompile Include="src\app\digital-assets\digital-asset-list-embed.component.ts" />
+    <TypeScriptCompile Include="src\app\digital-assets\digital-asset-edit-embed.component.ts" />
+    <TypeScriptCompile Include="src\app\digital-assets\digital-asset-item-embed.component.ts" />
+    <TypeScriptCompile Include="src\app\digital-assets\digital-asset.actions.ts" />
+    <TypeScriptCompile Include="src\app\links\link.actions.ts" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />

@@ -23,6 +23,10 @@ namespace Propose.Data.Model
 
         public string HtmlBody { get; set; }
 
+        public ICollection<IdeaDigitalAsset> IdeaDigitalAssets { get; set; } = new HashSet<IdeaDigitalAsset>();
+
+        public ICollection<IdeaLink> IdeaLinks { get; set; } = new HashSet<IdeaLink>();
+
         public string HtmlDescription { get; set; }
 
         public DateTime CreatedOn { get; set; }

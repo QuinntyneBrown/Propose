@@ -1,5 +1,6 @@
 import { Idea } from "./idea.model";
 import { IdeaService } from "./idea.service";
+import { IdeaHub } from "./idea-hub.service";
 import { EditorComponent } from "../shared";
 import { Router } from "../router";
 import { IdeationService, Ideation } from "../ideations";
@@ -10,6 +11,7 @@ const styles = require("./idea-edit.component.scss");
 export class IdeaEditComponent extends HTMLElement {
     constructor(
         private _ideaService: IdeaService = IdeaService.Instance,
+        private _ideaHub: IdeaHub = IdeaHub.Instance,
         private _ideationService: IdeationService = IdeationService.Instance,
         private _router: Router = Router.Instance
         ) {
@@ -84,6 +86,9 @@ export class IdeaEditComponent extends HTMLElement {
         } as Idea;
         
         await this._ideaService.add(idea);
+
+        this._ideaHub.ideaAddedOrUpdated(idea);
+
         this._router.navigate(["idea","list"]);
     }
 
