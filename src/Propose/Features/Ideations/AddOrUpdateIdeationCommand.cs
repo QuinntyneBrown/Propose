@@ -34,6 +34,10 @@ namespace Propose.Features.Ideations
                 if (entity == null) _context.Ideations.Add(entity = new Ideation());
                 entity.Name = request.Ideation.Name;
                 entity.TenantId = request.TenantId;
+                entity.Start = request.Ideation.Start;
+                entity.End = request.Ideation.End;
+                entity.MaxiumIdeasPerUser = request.Ideation.MaxiumIdeasPerUser;
+                entity.MaxiumumVotesPerUser = request.Ideation.MaxiumumVotesPerUser;
 
                 await _context.SaveChangesAsync();
 

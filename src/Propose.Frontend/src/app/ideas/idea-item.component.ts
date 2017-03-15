@@ -3,6 +3,7 @@ import { IdeaService } from "./idea.service";
 import { EditorComponent } from "../shared";
 import { Router } from "../router";
 import { CurrentUser } from "../users";
+import { pluckOut } from "../utilities";
 
 const template = require("./idea-item.component.html");
 const styles = require("./idea-item.component.scss");
@@ -63,9 +64,18 @@ export class IdeaItemComponent extends HTMLElement {
         this._router.navigate(["idea","view",this.entity.id]);
     }
 
-    private async _onClick() {
-        await this._ideaService.vote({ id: this.entity.id });
-        this._router.navigate(["idea", "list"]);
+    private async _onClick() {        
+        var existingVote = this.entity.votes.find((x) => { return x.userId == this._currentUser.userId });
+        
+        if (existingVote) {            
+            pluckOut({ key: "userId", value: existingVote.userId, items: this.entity.votes });
+        } else {
+            this.entity.votes.push({ userId: this._currentUser.userId });
+        }
+
+        this._nameElement.textContent = `${this.entity.name} - ${this.entity.votes.length}`;
+
+        await this._ideaService.vote({ id: this.entity.id });        
     }
     
     attributeChangedCallback(name, oldValue, newValue) {

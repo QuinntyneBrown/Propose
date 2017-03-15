@@ -17,6 +17,14 @@ namespace Propose.Data.Model
         [Column(TypeName = "VARCHAR")]        
 		public string Name { get; set; }
         
+        public DateTime? Start { get; set; }
+
+        public DateTime End { get; set; }
+
+        public int? MaxiumumVotesPerUser { get; set; }
+
+        public int? MaxiumIdeasPerUser { get; set; }
+        
         public ICollection<Idea> Ideas { get; set; }
 
 		public DateTime CreatedOn { get; set; }

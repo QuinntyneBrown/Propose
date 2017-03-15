@@ -1,7 +1,7 @@
 import { User } from "../users";
 
 export class Vote {
-
+    public userId: any;    
 }
 
 export class Idea { 
