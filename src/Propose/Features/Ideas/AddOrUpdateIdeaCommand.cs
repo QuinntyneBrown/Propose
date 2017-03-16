@@ -29,6 +29,8 @@ namespace Propose.Features.Ideas
             public async Task<AddOrUpdateIdeaResponse> Handle(AddOrUpdateIdeaRequest request)
             {
                 var entity = await _context.Ideas
+                    .Include( x => x.IdeaDigitalAssets)
+                    .Include( x => x.IdeaLinks)
                     .SingleOrDefaultAsync(x => x.Id == request.Idea.Id && x.TenantId == request.TenantId);
                 if (entity == null) _context.Ideas.Add(entity = new Idea());
                 
@@ -39,6 +41,32 @@ namespace Propose.Features.Ideas
                 entity.HtmlBody = request.Idea.HtmlBody;
                 entity.HtmlDescription = request.Idea.HtmlDescription;
                 entity.UserId = request.UserId;
+
+                entity.IdeaDigitalAssets.Clear();
+
+                foreach(var digitalAsset in request.Idea.DigitalAssets)
+                {
+                    IdeaDigitalAsset newDigitalAsset = await _context.IdeaDigitalAssets.FindAsync(digitalAsset.Id);
+
+                    if (newDigitalAsset == null) { newDigitalAsset = new IdeaDigitalAsset(); }
+
+                    newDigitalAsset.DigitalAssetUrl = digitalAsset.DigitalAssetUrl;
+
+                    entity.IdeaDigitalAssets.Add(newDigitalAsset);
+
+                }
+
+                entity.IdeaLinks.Clear();
+
+                foreach (var link in request.Idea.Links)
+                {
+                    IdeaLink newLink = await _context.IdeaLinks.FindAsync(link.Id);
+
+                    if (newLink == null) { newLink = new IdeaLink(); }
+
+                    entity.IdeaLinks.Add(newLink);
+
+                }
 
                 await _context.SaveChangesAsync();
 

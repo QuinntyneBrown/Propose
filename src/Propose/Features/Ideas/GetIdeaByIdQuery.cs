@@ -32,7 +32,12 @@ namespace Propose.Features.Ideas
             {                
                 return new GetIdeaByIdResponse()
                 {
-                    Idea = IdeaApiModel.FromIdea(await _context.Ideas.SingleAsync(x=>x.Id == request.Id && x.TenantId == request.TenantId))
+                    Idea = IdeaApiModel.FromIdea(await _context.Ideas
+                                        .Include(x => x.User)
+                                        .Include(x => x.Votes)
+                                        .Include(x => x.IdeaDigitalAssets)
+                                        .Include(x => x.IdeaLinks)
+                                        .SingleAsync(x=>x.Id == request.Id && x.TenantId == request.TenantId))
                 };
             }
 

@@ -123,12 +123,16 @@
       <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SendGrid, Version=9.0.12.0, Culture=neutral, PublicKeyToken=4f047e93159395ca, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Sendgrid.9.0.12\lib\net452\SendGrid.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Swashbuckle.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cd1bb07a5ac7c7bc, processorArchitecture=MSIL">
@@ -230,6 +234,12 @@
     </Content>
     <Content Include="src\app\digital-assets\digital-asset-list-embed.component.scss">
       <DependentUpon>digital-asset-list-embed.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\digital-assets\digital-asset-url-input.component.html">
+      <DependentUpon>digital-asset-url-input.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\digital-assets\digital-asset-url-input.component.scss">
+      <DependentUpon>digital-asset-url-input.component.ts</DependentUpon>
     </Content>
     <Content Include="src\app\ideas\idea-edit.component.html">
       <DependentUpon>idea-edit.component.ts</DependentUpon>
@@ -350,6 +360,42 @@
     </Content>
     <Content Include="src\app\shared\tabs.component.scss">
       <DependentUpon>tabs.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\teams\team-edit.component.html">
+      <DependentUpon>team-edit.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\teams\team-edit.component.scss">
+      <DependentUpon>team-edit.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\teams\team-item.component.html">
+      <DependentUpon>team-item.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\teams\team-item.component.scss">
+      <DependentUpon>team-item.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\teams\team-leader-edit.component.html">
+      <DependentUpon>team-leader-edit.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\teams\team-leader-edit.component.scss">
+      <DependentUpon>team-leader-edit.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\teams\team-leader-item.component.html">
+      <DependentUpon>team-leader-item.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\teams\team-leader-item.component.scss">
+      <DependentUpon>team-leader-item.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\teams\team-leader-list.component.html">
+      <DependentUpon>team-leader-list.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\teams\team-leader-list.component.scss">
+      <DependentUpon>team-leader-list.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\teams\team-list.component.html">
+      <DependentUpon>team-list.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\teams\team-list.component.scss">
+      <DependentUpon>team-list.component.ts</DependentUpon>
     </Content>
     <Content Include="src\app\users\change-password.component.html">
       <DependentUpon>change-password.component.ts</DependentUpon>
@@ -556,6 +602,18 @@
     <TypeScriptCompile Include="src\app\digital-assets\digital-asset-item-embed.component.ts" />
     <TypeScriptCompile Include="src\app\digital-assets\digital-asset.actions.ts" />
     <TypeScriptCompile Include="src\app\links\link.actions.ts" />
+    <TypeScriptCompile Include="src\app\teams\index.ts" />
+    <TypeScriptCompile Include="src\app\teams\team.model.ts" />
+    <TypeScriptCompile Include="src\app\teams\team-leader.model.ts" />
+    <TypeScriptCompile Include="src\app\teams\team-leader.service.ts" />
+    <TypeScriptCompile Include="src\app\teams\team.service.ts" />
+    <TypeScriptCompile Include="src\app\teams\team-edit.component.ts" />
+    <TypeScriptCompile Include="src\app\teams\team-list.component.ts" />
+    <TypeScriptCompile Include="src\app\teams\team-item.component.ts" />
+    <TypeScriptCompile Include="src\app\teams\team-leader-edit.component.ts" />
+    <TypeScriptCompile Include="src\app\teams\team-leader-list.component.ts" />
+    <TypeScriptCompile Include="src\app\teams\team-leader-item.component.ts" />
+    <TypeScriptCompile Include="src\app\ideas\vote.model.ts" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />

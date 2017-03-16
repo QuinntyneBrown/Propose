@@ -36,6 +36,9 @@ export class LinkListEmbedComponent extends HTMLElement {
         switch (name) {
             case "links":
                 this.links = JSON.parse(newValue);
+                if (this.parentNode) {
+                    this.connectedCallback();
+                }
                 break;
         }
     }

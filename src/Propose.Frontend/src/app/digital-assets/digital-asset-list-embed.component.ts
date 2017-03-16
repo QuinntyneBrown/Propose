@@ -34,8 +34,11 @@ export class DigitalAssetListEmbedComponent extends HTMLElement {
 
     attributeChangedCallback(name, oldValue, newValue) {
         switch (name) {
-            case "digital-assets":
+            case "digital-assets":                
                 this.digitalAssets = JSON.parse(newValue);
+                if (this.parentNode) {
+                    this.connectedCallback();
+                }
                 break;
         }
     }

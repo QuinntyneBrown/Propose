@@ -17,6 +17,8 @@ namespace Propose.Features.Ideas
         public string HtmlDescription { get; set; }
         public ICollection<VoteApiModel> Votes { get; set; } = new HashSet<VoteApiModel>();
         public IdeationApiModel Ideation { get; set; }
+        public ICollection<IdeaLinkApiModel> Links { get; set; } = new HashSet<IdeaLinkApiModel>();
+        public ICollection<IdeaDigitalAssetApiModel> DigitalAssets { get; set; } = new HashSet<IdeaDigitalAssetApiModel>();
 
         public UserApiModel User { get; set; }
         public static TModel FromIdea<TModel>(Idea idea) where
@@ -33,6 +35,9 @@ namespace Propose.Features.Ideas
             model.Ideation = idea.Ideation == null ? null : IdeationApiModel.FromIdeation(idea.Ideation);
             model.User = idea.User == null ? null : UserApiModel.FromUser(idea.User);
             model.Votes = idea.Votes.Select(x => VoteApiModel.FromVote(x)).ToList();
+            model.DigitalAssets = idea.IdeaDigitalAssets.Select(x => IdeaDigitalAssetApiModel.FromIdeaDigitalAsset(x)).ToList();
+            model.Links = idea.IdeaLinks.Select(x => IdeaLinkApiModel.FromIdeaLink(x)).ToList();
+
             return model;
         }
 

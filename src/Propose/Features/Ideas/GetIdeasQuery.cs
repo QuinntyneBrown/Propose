@@ -30,8 +30,10 @@ namespace Propose.Features.Ideas
             public async Task<GetIdeasResponse> Handle(GetIdeasRequest request)
             {
                 var ideas = await _context.Ideas
-                    .Include(x=>x.User)
-                    .Include(x=>x.Votes)
+                    .Include(x => x.User)
+                    .Include(x => x.Votes)
+                    .Include(x => x.IdeaDigitalAssets)
+                    .Include(x => x.IdeaLinks)
                     .Where( x => x.TenantId == request.TenantId )
                     .ToListAsync();
 

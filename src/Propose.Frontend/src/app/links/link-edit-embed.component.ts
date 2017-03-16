@@ -76,7 +76,7 @@ export class LinkEditEmbedComponent extends HTMLElement {
                 if (this.parentNode) {
                     this.linkId = this.link.id;
                     this._nameInputElement.value = this.link.name != undefined ? this.link.name : "";
-                    this._titleElement.textContent = this.linkId ? "Edit {{ entityNamePacalCase }}" : "Create {{ entityNamePacalCase }}";
+                    this._titleElement.textContent = this.linkId ? "Edit Link" : "Create Link";
                 }
                 break;
         }           

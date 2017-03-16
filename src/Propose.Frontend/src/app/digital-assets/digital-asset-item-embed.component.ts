@@ -1,4 +1,5 @@
 import { DigitalAsset } from "./digital-asset.model";
+import { DigitalAssetDelete } from "./digital-asset.actions";
 
 const template = require("./digital-asset-item-embed.component.html");
 const styles = require("./digital-asset-item-embed.component.scss");
@@ -29,7 +30,7 @@ export class DigitalAssetItemEmbedComponent extends HTMLElement {
     }
 
     private _bind() {
-        this._nameElement.textContent = this.entity.name;
+        this._digitalAssetUrlElement.textContent = this.entity.digitalAssetUrl;
     }
 
     private _setEventListeners() {
@@ -39,7 +40,12 @@ export class DigitalAssetItemEmbedComponent extends HTMLElement {
     }
 
     private async _onDeleteClick(e:Event) {
+        const digitalAsset = {
+            id: this.entity.id,
+            digitalAssetUrl: this.entity.digitalAssetUrl
+        } as DigitalAsset;
 
+        this.dispatchEvent(new DigitalAssetDelete(digitalAsset)); 
     }
 
     private _onEditClick() {
@@ -58,7 +64,7 @@ export class DigitalAssetItemEmbedComponent extends HTMLElement {
         }        
     }
 
-    private get _nameElement() { return this.querySelector("p") as HTMLElement; }
+    private get _digitalAssetUrlElement() { return this.querySelector("p") as HTMLElement; }
     private get _deleteLinkElement() { return this.querySelector(".entity-item-delete") as HTMLElement; }
     private get _editLinkElement() { return this.querySelector(".entity-item-edit") as HTMLElement; }
     private get _viewLinkElement() { return this.querySelector(".entity-item-view") as HTMLElement; }

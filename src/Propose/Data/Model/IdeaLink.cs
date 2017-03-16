@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using Propose.Data.Helpers;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -19,8 +18,10 @@ namespace Propose.Data.Model
         [Index("NameIndex", IsUnique = false)]
         [Column(TypeName = "VARCHAR")]        
 		public string Name { get; set; }
-        
-		public DateTime CreatedOn { get; set; }
+
+        public string Url { get; set; }
+
+        public DateTime CreatedOn { get; set; }
         
 		public DateTime LastModifiedOn { get; set; }
         

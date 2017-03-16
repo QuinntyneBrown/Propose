@@ -106,12 +106,16 @@
       <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SendGrid, Version=9.0.12.0, Culture=neutral, PublicKeyToken=4f047e93159395ca, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Sendgrid.9.0.12\lib\net452\SendGrid.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Swashbuckle.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cd1bb07a5ac7c7bc, processorArchitecture=MSIL">
@@ -210,6 +214,7 @@
     <Compile Include="Features\DigitalAssets\UploadHandlers\InMemoryMultipartFormDataStreamProvider.cs" />
     <Compile Include="Features\DigitalAssets\UploadHandlers\StreamHelper.cs" />
     <Compile Include="Features\Ideas\IdeaHub.cs" />
+    <Compile Include="Features\Notifications\SmtpConfiguration.cs" />
     <Compile Include="Features\Users\AddOrUpdateUserCommand.cs" />
     <Compile Include="Features\Users\Constants.cs" />
     <Compile Include="Features\Users\GetUserByIdQuery.cs" />
@@ -266,9 +271,13 @@
     <Compile Include="Data\Model\IdeaDigitalAsset.cs" />
     <Compile Include="Data\Model\DigitalAsset.cs" />
     <Compile Include="Data\Model\IdeaLink.cs" />
+    <Compile Include="Features\Ideas\IdeaLinkApiModel.cs" />
+    <Compile Include="Features\Ideas\IdeaDigitalAssetApiModel.cs" />
+    <Compile Include="Data\Model\Message.cs" />
+    <Compile Include="Data\Model\LinkedResource.cs" />
+    <Compile Include="Features\Notifications\SendIdeaAddedOrUpdatedMessageCommand.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Features\Notifications\" />
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>

@@ -14,6 +14,8 @@ export class AppRouterOutletComponent extends RouterOutlet {
             { path: "/idea/list", name: "idea-list", authRequired: true },
             { path: "/ideation/:ideationId/idea/list", name: "idea-list", authRequired: true },
 
+            { path: "/idea/edit/:ideaId/tab/:tabIndex", name: "idea-edit", authRequired: true },
+
             { path: "/ideation/edit/:ideationId", name: "ideation-edit", authRequired: true },
             { path: "/ideation/create", name: "ideation-edit", authRequired: true },
             { path: "/ideation/list", name: "ideation-list", authRequired: true },
