@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using Propose.Data.Helpers;
 using System.ComponentModel.DataAnnotations.Schema;
 

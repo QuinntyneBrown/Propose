@@ -8,6 +8,7 @@ using static Propose.Features.Ideas.GetIdeasQuery;
 using static Propose.Features.Ideas.GetIdeaByIdQuery;
 using static Propose.Features.Ideas.RemoveIdeaCommand;
 using static Propose.Features.Ideas.VoteIdeaCommand;
+using static Propose.Features.Notifications.SendIdeaAddedOrUpdatedMessageCommand;
 
 namespace Propose.Features.Ideas
 {
@@ -29,7 +30,10 @@ namespace Propose.Features.Ideas
             var user = await _userManager.GetUserAsync(User);
             request.TenantId = user.TenantId;
             request.UserId = user.Id;
-            return Ok(await _mediator.Send(request));
+            await _mediator.Send(request);
+            await _mediator.Send(new SendIdeaAddedOrUpdatedMessageRequest() { IdeaId = request.Idea.Id });
+
+            return Ok();
         }
 
         [Route("update")]

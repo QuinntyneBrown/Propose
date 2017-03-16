@@ -25,6 +25,8 @@ namespace Propose.Data.Model
 
         public ICollection<IdeaDigitalAsset> IdeaDigitalAssets { get; set; } = new HashSet<IdeaDigitalAsset>();
 
+        public ICollection<IdeaComment> IdeaComments { get; set; } = new HashSet<IdeaComment>();
+
         public ICollection<IdeaLink> IdeaLinks { get; set; } = new HashSet<IdeaLink>();
 
         public string HtmlDescription { get; set; }

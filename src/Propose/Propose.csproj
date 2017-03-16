@@ -276,6 +276,13 @@
     <Compile Include="Data\Model\Message.cs" />
     <Compile Include="Data\Model\LinkedResource.cs" />
     <Compile Include="Features\Notifications\SendIdeaAddedOrUpdatedMessageCommand.cs" />
+    <Compile Include="Data\Model\IdeaComment.cs" />
+    <Compile Include="Features\Ideas\AddOrUpdateIdeaCommentCommand.cs" />
+    <Compile Include="Features\Ideas\GetIdeaCommentsQuery.cs" />
+    <Compile Include="Features\Ideas\GetIdeaCommentByIdQuery.cs" />
+    <Compile Include="Features\Ideas\RemoveIdeaCommentCommand.cs" />
+    <Compile Include="Features\Ideas\IdeaCommentApiModel.cs" />
+    <Compile Include="Features\Ideas\IdeaCommentController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />

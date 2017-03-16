@@ -200,6 +200,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
+    <Content Include="dist\app.js" />
     <Content Include="index.html" />
     <Content Include="lib\jquery-1.6.4.js" />
     <Content Include="lib\jquery.signalR-2.2.1.js" />
@@ -615,8 +616,10 @@
     <TypeScriptCompile Include="src\app\teams\team-leader-item.component.ts" />
     <TypeScriptCompile Include="src\app\ideas\vote.model.ts" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Properties\" />
+    <None Include="Properties\PublishProfiles\propose-idea - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\propose-idea - Web Deploy.pubxml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
 </Project>
