@@ -12,6 +12,7 @@ namespace Propose.Data.Model
         [ForeignKey("Tenant")]
         public int? TenantId { get; set; }
 
+
         public string Name { get; set; }
 
         public string Folder { get; set; }
@@ -28,10 +29,13 @@ namespace Propose.Data.Model
 
         public string ContentType { get; set; }
 
+        [NotMapped]
         public string RelativePath { get { return $"api/digitalasset/serve?uniqueid={UniqueId}"; } }
 
         public Byte[] Bytes { get; set; } = new byte[0];
 
+        [Index("UniqueIdIndex", IsUnique = true)]
+        [Column(TypeName = "UNIQUEIDENTIFIER")]
         public Guid? UniqueId { get; set; } = Guid.NewGuid();
 
         public DateTime CreatedOn { get; set; }
