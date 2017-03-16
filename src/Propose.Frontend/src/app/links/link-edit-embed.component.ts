@@ -1,6 +1,6 @@
 import { Link } from "./link.model";
 import { EditorComponent } from "../shared";
-import {  LinkDelete, LinkEdit, LinkAdd } from "./link.actions";
+import { LinkDelete, LinkEdit, LinkAdd } from "./link.actions";
 
 const template = require("./link-edit-embed.component.html");
 const styles = require("./link-edit-embed.component.scss");
@@ -48,7 +48,8 @@ export class LinkEditEmbedComponent extends HTMLElement {
     public onSave() {
         const link = {
             id: this.link != null ? this.link.id : null,
-            name: this._nameInputElement.value
+            name: this._nameInputElement.value,
+            url: this._urlInputElement.value
         } as Link;
         
         this.dispatchEvent(new LinkAdd(link));            
@@ -86,7 +87,8 @@ export class LinkEditEmbedComponent extends HTMLElement {
     private get _titleElement(): HTMLElement { return this.querySelector("h2") as HTMLElement; }
     private get _saveButtonElement(): HTMLElement { return this.querySelector(".save-button") as HTMLElement };
     private get _deleteButtonElement(): HTMLElement { return this.querySelector(".delete-button") as HTMLElement };
-    private get _nameInputElement(): HTMLInputElement { return this.querySelector(".link-name") as HTMLInputElement;}
+    private get _nameInputElement(): HTMLInputElement { return this.querySelector(".link-name") as HTMLInputElement; }
+    private get _urlInputElement(): HTMLInputElement { return this.querySelector(".link-url") as HTMLInputElement; }
 }
 
 customElements.define(`ce-link-edit-embed`,LinkEditEmbedComponent);

@@ -6,8 +6,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>
-    </ProductVersion>
+    <ProductVersion></ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{F6286226-21E2-4BEB-B76D-F9E2D650E02A}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
@@ -22,8 +21,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
+    <NuGetPackageImportStamp></NuGetPackageImportStamp>
     <TypeScriptToolsVersion>2.2</TypeScriptToolsVersion>
     <TypeScriptEmitDecoratorMetadata>true</TypeScriptEmitDecoratorMetadata>
     <TypeScriptModuleKind>commonjs</TypeScriptModuleKind>
@@ -296,6 +294,12 @@
     <Content Include="src\app\links\link-list-embed.component.scss">
       <DependentUpon>link-list-embed.component.ts</DependentUpon>
     </Content>
+    <Content Include="src\app\links\link-master-detail-embed.component.html">
+      <DependentUpon>link-master-detail-embed.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\links\link-master-detail-embed.component.scss">
+      <DependentUpon>link-master-detail-embed.component.ts</DependentUpon>
+    </Content>
     <Content Include="src\app\shared\button.component.html">
       <DependentUpon>button.component.ts</DependentUpon>
     </Content>
@@ -466,8 +470,7 @@
           <IISUrl>http://localhost:64410/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
+          <CustomServerUrl></CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
@@ -615,6 +618,7 @@
     <TypeScriptCompile Include="src\app\teams\team-leader-list.component.ts" />
     <TypeScriptCompile Include="src\app\teams\team-leader-item.component.ts" />
     <TypeScriptCompile Include="src\app\ideas\vote.model.ts" />
+    <TypeScriptCompile Include="src\app\links\link-master-detail-embed.component.ts" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
