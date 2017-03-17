@@ -402,6 +402,30 @@
     <Content Include="src\app\teams\team-list.component.scss">
       <DependentUpon>team-list.component.ts</DependentUpon>
     </Content>
+    <Content Include="src\app\teams\team-member-edit.component.html">
+      <DependentUpon>team-member-edit.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\teams\team-member-edit.component.scss">
+      <DependentUpon>team-member-edit.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\teams\team-member-item.component.html">
+      <DependentUpon>team-member-item.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\teams\team-member-item.component.scss">
+      <DependentUpon>team-member-item.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\teams\team-member-list.component.html">
+      <DependentUpon>team-member-list.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\teams\team-member-list.component.scss">
+      <DependentUpon>team-member-list.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\teams\team-registration.component.html">
+      <DependentUpon>team-registration.component.ts</DependentUpon>
+    </Content>
+    <Content Include="src\app\teams\team-registration.component.scss">
+      <DependentUpon>team-registration.component.ts</DependentUpon>
+    </Content>
     <Content Include="src\app\users\change-password.component.html">
       <DependentUpon>change-password.component.ts</DependentUpon>
     </Content>
@@ -532,6 +556,7 @@
     <TypeScriptCompile Include="src\app\shared\side-nav.component.ts" />
     <TypeScriptCompile Include="src\app\shared\tabs.component.ts" />
     <TypeScriptCompile Include="src\app\shared\title.service.ts" />
+    <TypeScriptCompile Include="src\app\teams\team-member-item.component.ts" />
     <TypeScriptCompile Include="src\app\utilities\add-or-update.ts" />
     <TypeScriptCompile Include="src\app\utilities\append-to-body-async.ts" />
     <TypeScriptCompile Include="src\app\utilities\append-to-target-async.ts" />
@@ -619,6 +644,11 @@
     <TypeScriptCompile Include="src\app\teams\team-leader-item.component.ts" />
     <TypeScriptCompile Include="src\app\ideas\vote.model.ts" />
     <TypeScriptCompile Include="src\app\links\link-master-detail-embed.component.ts" />
+    <TypeScriptCompile Include="src\app\teams\team-registration.component.ts" />
+    <TypeScriptCompile Include="src\app\teams\team-member.model.ts" />
+    <TypeScriptCompile Include="src\app\teams\team-member.service.ts" />
+    <TypeScriptCompile Include="src\app\teams\team-member-edit.component.ts" />
+    <TypeScriptCompile Include="src\app\teams\team-member-list.component.ts" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
