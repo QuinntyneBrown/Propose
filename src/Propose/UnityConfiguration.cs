@@ -4,6 +4,7 @@ using Microsoft.Practices.Unity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Propose.Features.Notifications;
 
 namespace Propose
 {
@@ -13,7 +14,8 @@ namespace Propose
         {
             var container = new UnityContainer();            
             container.AddMediator<UnityConfiguration>();
-            container.RegisterInstance(AuthConfiguration.LazyConfig);            
+            container.RegisterInstance(AuthConfiguration.LazyConfig);
+            container.RegisterInstance(NotificationsConfiguration.LazyConfig);        
             return container;
         }
     }

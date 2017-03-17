@@ -1,27 +1,31 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Propose.Features.Notifications
 {
-    public interface ISmtpConfiguration
+    public interface INotificationsConfiguration
     {
         string Host { get; set; }
         int Port { get; set; }
         string Username { get; set; }
         string Password { get; set; }
+        string SendGridApiKey { get; set; }
     }
 
-    public class SmtpConfiguration : ConfigurationSection, ISmtpConfiguration
+    public class NotificationsConfiguration : ConfigurationSection, INotificationsConfiguration
     {
         [ConfigurationProperty("host", IsRequired = true)]
         public string Host
         {
             get { return (string)this["host"]; }
             set { this["host"] = value; }
+        }
+
+        [ConfigurationProperty("sendGridApiKey", IsRequired = true)]
+        public string SendGridApiKey
+        {
+            get { return (string)this["sendGridApiKey"]; }
+            set { this["sendGridApiKey"] = value; }
         }
 
         [ConfigurationProperty("port", IsRequired = true)]
@@ -44,10 +48,17 @@ namespace Propose.Features.Notifications
             get { return (string)this["password"]; }
             set { this["password"] = value; }
         }
+        
 
-        public static SmtpConfiguration Config
+        public static readonly Lazy<INotificationsConfiguration> LazyConfig = new Lazy<INotificationsConfiguration>(() =>
         {
-            get { return ConfigurationManager.GetSection("smtpConfiguration") as SmtpConfiguration; }
-        }
+            var section = ConfigurationManager.GetSection("notificationsConfiguration") as INotificationsConfiguration;
+            if (section == null)
+            {
+                throw new ConfigurationErrorsException("notificationsConfiguration");
+            }
+
+            return section;
+        }, true);
     }
 }

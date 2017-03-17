@@ -1,6 +1,7 @@
 using MediatR;
 using Propose.Data;
 using Propose.Features.Core;
+using System;
 using System.Net;
 using System.Net.Mail;
 using System.Net.Mime;
@@ -19,8 +20,10 @@ namespace Propose.Features.Notifications
 
         public class SendIdeaAddedOrUpdatedMessageHandler : IAsyncRequestHandler<SendIdeaAddedOrUpdatedMessageRequest, SendIdeaAddedOrUpdatedMessageResponse>
         {
-            public SendIdeaAddedOrUpdatedMessageHandler(ProposeContext context, ICache cache, ISmtpConfiguration smtpConfiguration)
+            public SendIdeaAddedOrUpdatedMessageHandler(ProposeContext context, ICache cache, Lazy<INotificationsConfiguration> lazySmtpConfiguration)
             {
+                var smtpConfiguration = lazySmtpConfiguration.Value;
+
                 _context = context;
                 _cache = cache;
 
@@ -57,7 +60,7 @@ namespace Propose.Features.Notifications
             private readonly System.Net.Mail.SmtpClient _smtpClient;
             private readonly ProposeContext _context;
             private readonly ICache _cache;
-            private readonly ISmtpConfiguration _smptpConfiguration;
+            private readonly INotificationsConfiguration _smptpConfiguration;
         }
     }
 }

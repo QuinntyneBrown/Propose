@@ -1,40 +1,46 @@
-﻿using MediatR;
-using Propose.Data;
+﻿using Propose.Data;
 using Propose.Features.Core;
-using System.Net;
-using System.Net.Mail;
-using System.Net.Mime;
+using SendGrid;
+using SendGrid.Helpers.Mail;
+using System;
 using System.Threading.Tasks;
 
 namespace Propose.Features.Notifications
 {
     public interface INotificationService
     {
-        MailMessage BuildMessage();
-        MailMessage ResolveRecipients(ref System.Net.Mail.MailMessage mailMessage);
-
+        SendGridMessage BuildMessage();
+        void ResolveRecipients(ref SendGridMessage mailMessage);        
     }
 
     public class NotificationService: INotificationService
     {
-        public MailMessage BuildMessage()
+        public NotificationService(Lazy<NotificationsConfiguration> lazyNotificationsConfiguration)
         {
-            var mailMessage = new MailMessage();
+            _sendGridClient = new SendGridClient(lazyNotificationsConfiguration.Value.SendGridApiKey);
+        }
+
+        public SendGridMessage BuildMessage()
+        {
+            var mailMessage = new SendGrid.Helpers.Mail.SendGridMessage();            
             var html = @"<html><body><h1>Test</h1></body></html>";
-            mailMessage.AlternateViews.Add(AlternateView.CreateAlternateViewFromString(html, null, MediaTypeNames.Text.Html));
+            mailMessage.HtmlContent = html;
             return mailMessage;
         }
 
-        public MailMessage ResolveRecipients(ref System.Net.Mail.MailMessage mailMessage)
+        public void ResolveRecipients(ref SendGridMessage mailMessage)
         {
-            mailMessage.To.Add("quinntynebrown@gmail.com");
-            mailMessage.From = new MailAddress("quinntynebrown@gmail.com");
-            return mailMessage;
+            mailMessage.AddTo(new EmailAddress("quinntynebrown@gmail.com"));            
         }
 
-        private readonly System.Net.Mail.SmtpClient _smtpClient;
+        public async Task<dynamic> SendAsync(SendGridMessage mailMessage)
+        {
+            return await _sendGridClient.SendEmailAsync(mailMessage);
+        }
+
         private readonly ProposeContext _context;
         private readonly ICache _cache;
-        private readonly ISmtpConfiguration _smptpConfiguration;
+        private readonly SendGridClient _sendGridClient;
+        private readonly INotificationsConfiguration _smtpConfiguration;
     }
 }
