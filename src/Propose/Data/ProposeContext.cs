@@ -17,6 +17,7 @@ namespace Propose.Data
         DbSet<Ideation> Ideations { get; set; }
         DbSet<Vote> Votes { get; set; }
         DbSet<Team> Teams { get; set; }
+        DbSet<TeamMember> TeamMembers { get; set; }
         DbSet<IdeaDigitalAsset> IdeaDigitalAssets { get; set; }
         DbSet<DigitalAsset> DigitalAssets { get; set; }
         DbSet<IdeaLink> IdeaLinks { get; set; }
@@ -40,6 +41,7 @@ namespace Propose.Data
         public DbSet<Idea> Ideas { get; set; }
         public DbSet<Ideation> Ideations { get; set; }
         public DbSet<Team> Teams { get; set; }
+        public DbSet<TeamMember> TeamMembers { get; set; }
         public DbSet<IdeaDigitalAsset> IdeaDigitalAssets { get; set; }
         public DbSet<DigitalAsset> DigitalAssets { get; set; }
         public DbSet<IdeaLink> IdeaLinks { get; set; }

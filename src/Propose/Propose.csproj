@@ -284,6 +284,14 @@
     <Compile Include="Features\Ideas\RemoveIdeaCommentCommand.cs" />
     <Compile Include="Features\Ideas\IdeaCommentApiModel.cs" />
     <Compile Include="Features\Ideas\IdeaCommentController.cs" />
+    <Compile Include="Features\Teams\AddOrUpdateTeamMemberCommand.cs" />
+    <Compile Include="Features\Teams\GetTeamMembersQuery.cs" />
+    <Compile Include="Features\Teams\GetTeamMemberByIdQuery.cs" />
+    <Compile Include="Features\Teams\RemoveTeamMemberCommand.cs" />
+    <Compile Include="Features\Teams\TeamMemberApiModel.cs" />
+    <Compile Include="Features\Teams\TeamMemberController.cs" />
+    <Compile Include="Features\Teams\GetTeamMembersByUserIdQuery.cs" />
+    <Compile Include="Data\Model\TeamMember.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
