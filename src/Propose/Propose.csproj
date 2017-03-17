@@ -214,6 +214,8 @@
     <Compile Include="Features\DigitalAssets\UploadHandlers\InMemoryMultipartFormDataStreamProvider.cs" />
     <Compile Include="Features\DigitalAssets\UploadHandlers\StreamHelper.cs" />
     <Compile Include="Features\Ideas\IdeaHub.cs" />
+    <Compile Include="Features\Notifications\NotificationService.cs" />
+    <Compile Include="Features\Notifications\SendRegistrationConfirmationCommand.cs" />
     <Compile Include="Features\Notifications\SmtpConfiguration.cs" />
     <Compile Include="Features\Users\AddOrUpdateUserCommand.cs" />
     <Compile Include="Features\Users\Constants.cs" />
