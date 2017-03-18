@@ -10,7 +10,8 @@ namespace Propose.Features.Notifications
     public interface INotificationService
     {
         SendGridMessage BuildMessage();
-        void ResolveRecipients(ref SendGridMessage mailMessage);        
+        void ResolveRecipients(ref SendGridMessage mailMessage);
+        Task<dynamic> SendAsync(SendGridMessage sendGridMessage);     
     }
 
     public class NotificationService: INotificationService
@@ -41,6 +42,5 @@ namespace Propose.Features.Notifications
         private readonly ProposeContext _context;
         private readonly ICache _cache;
         private readonly SendGridClient _sendGridClient;
-        private readonly INotificationsConfiguration _smtpConfiguration;
     }
 }

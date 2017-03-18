@@ -37,9 +37,13 @@ namespace Propose.Features.Ideas
                 entity.TenantId = request.TenantId;
 
                 entity.Name = request.Idea.Name;
+
                 entity.IdeationId = request.Idea.IdeationId;
+
                 entity.HtmlBody = request.Idea.HtmlBody;
+
                 entity.HtmlDescription = request.Idea.HtmlDescription;
+
                 entity.UserId = request.UserId;
 
                 entity.IdeaDigitalAssets.Clear();
@@ -76,7 +80,5 @@ namespace Propose.Features.Ideas
             private readonly ProposeContext _context;
             private readonly ICache _cache;
         }
-
     }
-
 }

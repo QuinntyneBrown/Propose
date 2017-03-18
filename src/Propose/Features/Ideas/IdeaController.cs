@@ -80,7 +80,7 @@ namespace Propose.Features.Ideas
         public async Task<IHttpActionResult> Vote([FromUri]VoteIdeaRequest request)
         {
             var user = await _userManager.GetUserAsync(User);
-            request.TenantId = (user).TenantId;
+            request.TenantId = user.TenantId;
             request.UserId = user.Id;
             return Ok(await _mediator.Send(request));
         }

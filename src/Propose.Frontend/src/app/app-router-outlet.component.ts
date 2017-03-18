@@ -22,7 +22,8 @@ export class AppRouterOutletComponent extends RouterOutlet {
 
             { path: "/register", name: "register" },
 
-            { path: "/change-password", name: "change-password", authRequired:true },
+            { path: "/change-password", name: "change-password", authRequired: true },
+            { path: "/confirm-registration/:token", name: "confirm-registration" },
             { path: "/login", name: "login" },
             { path: "/error", name: "error" },
             { path: "*", name: "not-found" }

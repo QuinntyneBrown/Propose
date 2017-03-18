@@ -1,35 +1,45 @@
 using MediatR;
 using Propose.Data;
 using Propose.Features.Core;
+using Propose.Features.Users;
+using Propose.Security;
 using System.Threading.Tasks;
+using static Newtonsoft.Json.JsonConvert;   
 
 namespace Propose.Features.Notifications
 {
     public class SendRegistrationConfirmationCommand
     {
-        public class SendRegistrationConfirmationRequest : IRequest<SendRegistrationConfirmationResponse> { }
+        public class SendRegistrationConfirmationRequest : IRequest<SendRegistrationConfirmationResponse> {
+            public ConfirmRegistrationApiModel ConfirmRegistration { get; set; }
+        }
 
         public class SendRegistrationConfirmationResponse { }
 
         public class SendRegistrationConfirmationHandler : IAsyncRequestHandler<SendRegistrationConfirmationRequest, SendRegistrationConfirmationResponse>
         {
-            public SendRegistrationConfirmationHandler(ProposeContext context, ICache cache, INotificationService notificationService)
+            public SendRegistrationConfirmationHandler(ProposeContext context, ICache cache, INotificationService notificationService, IEncryptionService encryptionService)
             {
                 _context = context;
                 _cache = cache;
                 _notificationService = notificationService;
+                _encryptionService = encryptionService;
             }
 
             public async Task<SendRegistrationConfirmationResponse> Handle(SendRegistrationConfirmationRequest request)
             {
-                throw new System.NotImplementedException();
+                var confirmationRegistration = SerializeObject(request.ConfirmRegistration);
+                var encryptedConfirmationRegistration = _encryptionService.EncryptUri(confirmationRegistration);
+                var mailMessage = _notificationService.BuildMessage();
+                _notificationService.ResolveRecipients(ref mailMessage);
+                var result = await _notificationService.SendAsync(mailMessage);
+                return new SendRegistrationConfirmationResponse();
             }
 
             private readonly ProposeContext _context;
             private readonly ICache _cache;
             private readonly INotificationService _notificationService;
+            private readonly IEncryptionService _encryptionService;
         }
-
     }
-
 }

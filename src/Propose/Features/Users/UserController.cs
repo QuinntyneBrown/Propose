@@ -9,6 +9,7 @@ using static Propose.Features.Users.GetUserByIdQuery;
 using static Propose.Features.Users.RemoveUserCommand;
 using static Propose.Features.Users.GetUserByUsernameQuery;
 using static Propose.Features.Users.RegisterCommand;
+using static Propose.Features.Users.ConfirmRegistrationCommand;
 
 namespace Propose.Features.Users
 {
@@ -78,6 +79,15 @@ namespace Propose.Features.Users
                 return null;
 
             request.TenantId = 1;
+            return Ok(await _mediator.Send(request));
+        }
+
+        [Route("confirmregistration")]
+        [AllowAnonymous]
+        [HttpPost]
+        [ResponseType(typeof(ConfirmRegistrationResponse))]
+        public async Task<IHttpActionResult> ConfirmRegistration([FromUri]ConfirmRegistrationRequest request)
+        {
             return Ok(await _mediator.Send(request));
         }
 

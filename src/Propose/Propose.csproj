@@ -292,6 +292,8 @@
     <Compile Include="Features\Teams\TeamMemberController.cs" />
     <Compile Include="Features\Teams\GetTeamMembersByUserIdQuery.cs" />
     <Compile Include="Data\Model\TeamMember.cs" />
+    <Compile Include="Features\Users\ConfirmRegistrationCommand.cs" />
+    <Compile Include="Features\Users\ConfirmRegistrationApiModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
